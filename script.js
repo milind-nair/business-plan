@@ -1,38 +1,36 @@
 const reasons = [
-  "You make ordinary days feel lighter.",
-  "You listen without trying to fix things.",
-  "You make silence comfortable.",
-  "You remember small details.",
-  "You make me laugh without trying.",
-  "You notice when something is off and check in.",
-  "You are patient when I need time.",
-  "You make shared plans feel simple.",
-  "You are honest even when it is hard.",
-  "You show up when it matters.",
-  "You are kind to people who cannot give anything back.",
-  "You keep your word.",
-  "You give thoughtful advice without pushing it.",
-  "You respect my boundaries.",
-  "You make room for my worries without minimizing them.",
-  "You notice the good in small moments.",
-  "You help without keeping score.",
-  "You make home feel steadier.",
-  "You ask good questions.",
-  "You are gentle with my mistakes.",
-  "You celebrate quiet wins.",
-  "You take care of yourself, and it shows.",
+  "You make every day fun.",
+  "You make me feel like I could never get bored with you.",
+  "You make me feel safe and loved.",
+  "You make me feel cared for.",
+  "You are the life of every party.",
+  "You are passionate about the things you like.",
+  "You are a foodie.",
+  "You are aggressive about your goals in life, and I respect you for it.",
+  "You talk endlessly and make me talk endlessly.",
+  "You make me feel like my presence actually matters.",
+  "You give life more color than it had before you.",
+  "You can turn a random Tuesday into an memorable event.",
   "You make hard days feel manageable.",
   "You let me be fully myself around you.",
-  "You check on the people I care about.",
-  "You make effort feel natural.",
-  "You bring a calm focus to messy days.",
-  "You make the room feel softer when you enter."
+  "You reach for my hand without thinking.",
+  "You make me laugh until my sides hurt.",
+  "You never let a moment feel wasted.",
+  "You remind me what it feels like to be truly alive.",
+  "You light up every room you walk into.",
+  "You make adventures out of ordinary moments.",
+  "You share your excitement about food like it's contagious.",
+  "You inspire me to chase my own dreams harder.",
+  "You challenge me in ways that make me better.",
+  "You are a reason to live for."
 ];
 
 const reasonEl = document.getElementById("reason");
 const buttonEl = document.getElementById("next");
 const progressEl = document.getElementById("progress");
 const closingEl = document.getElementById("closing");
+const introEl = document.getElementById("intro");
+const revealEl = document.getElementById("reveal");
 
 let index = 0;
 let locked = false;
@@ -49,7 +47,7 @@ function setEndState() {
   closingEl.hidden = false;
   window.setTimeout(() => {
     closingEl.classList.add("show");
-  }, 20);
+  }, 30);
 }
 
 function onNext() {
@@ -70,9 +68,18 @@ function onNext() {
 
     window.setTimeout(() => {
       locked = false;
-    }, 80);
-  }, 360);
+    }, 90);
+  }, 380);
+}
+
+function dismissIntro() {
+  introEl.classList.add("dismiss");
+  document.body.classList.remove("intro-active");
+  window.setTimeout(() => {
+    introEl.hidden = true;
+  }, 650);
 }
 
 showReason(index);
 buttonEl.addEventListener("click", onNext);
+revealEl.addEventListener("click", dismissIntro);

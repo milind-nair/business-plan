@@ -6,13 +6,45 @@
     <title>Rose Day</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="intro-active">
+    <section id="intro" class="intro" aria-label="Intro">
+      <div class="intro-inner">
+        <p class="intro-eyebrow">Rose Day</p>
+        <h1 class="intro-title">For Garima</h1>
+        <p class="intro-subtitle">A small devotion, in many lines</p>
+        <button id="reveal" class="intro-btn" type="button">Reveal</button>
+      </div>
+    </section>
+
+    <div class="petals" aria-hidden="true">
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+      <span class="petal"></span>
+    </div>
+
     <main class="card" aria-live="polite">
+      <p class="eyebrow">Rose Day</p>
+      <h1 class="title">For Garima</h1>
+      <p class="dedication">You are my favorite part of the day.</p>
+      <div class="ornament" aria-hidden="true">
+        <span class="line"></span>
+        <span class="dot"></span>
+        <span class="line"></span>
+      </div>
       <div class="rose" aria-hidden="true">🌹</div>
-      <p class="eyebrow">For Garima</p>
+      <p class="subtitle">A quiet collection of reasons</p>
       <p id="reason" class="reason"></p>
       <p id="closing" class="closing" hidden>
-        Thank you for being you. This is a small way of saying I notice you.
+        Thank you for letting me love you in small, steady ways.
       </p>
       <div class="actions">
         <button id="next" class="btn" type="button">Another reason</button>
@@ -20,7 +52,8 @@
       </div>
       <div class="signature" aria-hidden="true">
         <span class="sig-line"></span>
-        <span class="sig-text">Rose Day</span>
+        <span class="sig-text">With love</span>
+        <span class="sig-line"></span>
       </div>
     </main>
     <script src="script.js"></script>
