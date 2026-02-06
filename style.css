@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Work+Sans:wght@300;400&display=swap");
+
+:root {
+  color-scheme: light;
+  --bg: #fbf2ee;
+  --bg-deep: #f3e3dc;
+  --text: #2d2826;
+  --muted: #8c7f79;
+  --border: #d7c8c0;
+  --card: rgba(255, 255, 255, 0.62);
+  --accent: #b17878;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(1200px 600px at 15% 10%, #ffffff 0%, var(--bg) 60%),
+    radial-gradient(900px 500px at 85% 90%, var(--bg-deep) 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  line-height: 1.8;
+  letter-spacing: 0.012em;
+  padding: 28px 16px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 160px 160px, 70px 70px;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -10% 0 0;
+  background:
+    radial-gradient(600px 240px at 50% 0%, rgba(255, 255, 255, 0.5), transparent 70%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: min(580px, 88vw);
+  padding: 34px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid rgba(215, 200, 192, 0.7);
+  border-radius: 28px;
+  box-shadow: 0 18px 55px rgba(61, 50, 46, 0.12);
+  backdrop-filter: blur(8px);
+  animation: rise 700ms ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rose {
+  font-size: 46px;
+  line-height: 1;
+  margin-top: 4px;
+  animation: drift 4s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: "Work Sans", "Helvetica Neue", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+}
+
+.reason {
+  margin: 6px 0 0;
+  font-size: 22px;
+  color: var(--text);
+  max-width: 40ch;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 360ms ease-in-out, transform 360ms ease-in-out;
+}
+
+.reason.fade {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.closing {
+  margin: 4px 0 0;
+  font-size: 18px;
+  max-width: 40ch;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 420ms ease-in-out, transform 420ms ease-in-out;
+}
+
+.closing.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px;
+  font-family: "Work Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  padding: 11px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.progress {
+  font-family: "Work Sans", "Helvetica Neue", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-family: "Work Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 10px;
+}
+
+.sig-line {
+  width: 46px;
+  height: 1px;
+  background: rgba(140, 127, 121, 0.5);
+}
+
+@media (min-width: 760px) {
+  .reason {
+    font-size: 24px;
+  }
+
+  .closing {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .rose,
+  .reason,
+  .closing {
+    animation: none;
+    transition: none;
+  }
+}
